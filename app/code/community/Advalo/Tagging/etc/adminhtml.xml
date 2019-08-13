@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <advalo_tagging translate="title" module="advalo_tagging_main">
+                                        <sort_order>0</sort_order>
+                                        <title>Manage Advalo Script</title>
+                                    </advalo_tagging>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

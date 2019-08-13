@@ -1,0 +1,50 @@
+<?php
+$advalo_site_id = Mage::getStoreConfig ( 'advalo/advalo_site_id' );
+$advalo_tagging_enabled = Mage::getStoreConfig ( 'advalo/advalo_tagging_enabled' );
+
+$observer = 'advalo_tagging_main/page_observer';
+$mage = Mage::getSingleton ( $observer );
+?>
+
+<?php if ($advalo_tagging_enabled == 1) :?>
+<?php
+	// extract variable only when advalo variable is enabled
+	$version     = $mage->getVersion ();
+	$page        = $mage->getPage ();
+	$user        = $mage->getUser ();
+	$basket      = $mage->getBasket ();
+	$transaction = $mage->getTransaction ();
+?>
+
+<script type="text/javascript">
+	
+<!-- Advalo Variable Start -->	
+	window.advalo = window.advalo || {};
+	window.advalo.version         = <?php echo json_encode($version); ?>;
+	window.advalo.page            = <?php echo json_encode($page); ?>;
+	window.advalo.user            = <?php echo json_encode($user); ?>;
+        <?php if ($basket && $basket['total'] != 0) : ?>
+	window.advalo.basket          = <?php echo json_encode($basket) ?>;
+	<?php endif; ?>
+	<?php if ($transaction) : ?>
+	window.advalo.transaction     = <?php echo json_encode($transaction) ?>;
+	<?php endif; ?> 
+<!-- Advalo Variable End -->
+
+<!-- Advalo Script Start -->
+	var _paq = _paq || []; 
+	(function() { 
+		var u=('https:' == document.location.protocol ? 'https://' : 'http://') + 'analytics.advalo.com/'; 
+		_paq.push(['setSiteId', '<?php echo $advalo_site_id;?>']);
+		_paq.push(['trackPageView', window.advalo]); 
+		var d=document, g=d.createElement('script'); 
+		g.type='text/javascript'; 
+		g.defer=true;
+		g.async=true; 
+		g.src=u+'advalo.js?site_id=<?php echo $advalo_site_id;?>';
+		s=d.getElementsByTagName('script')[0]; s.parentNode.insertBefore(g,s);
+	})();
+<!-- Advalo Script End -->
+
+</script>
+<?php endif;?>

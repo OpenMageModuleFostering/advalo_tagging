@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Advalo_Tagging>
+			<version>1.0.0</version>
+		</Advalo_Tagging>
+	</modules>
+
+	<adminhtml>
+		<acl>
+			<resources>
+				<admin>
+					<children>
+						<system>
+							<children>
+								<config>
+									<children>
+										<advalo_tagging_options>
+											<title>AT Module Section</title>
+										</advalo_tagging_options>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+	</adminhtml>
+
+	<global>
+		<models>
+			<advalo_tagging_main>
+				<class>Advalo_Tagging_Model</class>
+			</advalo_tagging_main>
+		</models>
+		<helpers>
+			<advalo_tagging_main>
+				<class>Advalo_Tagging_Helper</class>
+			</advalo_tagging_main>
+		</helpers>
+		<blocks>
+			<advalo_tagging_main>
+				<class>Advalo_Tagging_Block</class>
+			</advalo_tagging_main>
+		</blocks>
+	</global>
+
+	<frontend>
+		<!-- Layout -->
+		<layout>
+			<updates>
+				<advalo_tagging>
+					<file>advalo/advalo_tagging.xml</file>
+				</advalo_tagging>
+			</updates>
+		</layout>
+		<!-- Event -->
+		<events>
+			<controller_action_layout_load_before>
+				<observers>
+					<Advalo_Tagging_Model_Page_Observer>
+						<type>singleton</type>
+						<class>advalo_tagging_main/page_observer</class>
+						<method>setAdvaloTagging</method>
+					</Advalo_Tagging_Model_Page_Observer>
+				</observers>
+			</controller_action_layout_load_before>
+			<newsletter_subscriber_save_after>
+        		<observers>
+                    <Advalo_Tagging_Model_Page_Observer>
+                        <type>singleton</type>   
+                        <class>advalo_tagging_main/page_observer</class>
+                        <method>getSubscriberEmail</method>
+                    </Advalo_Tagging_Model_Page_Observer>
+                </observers>
+            </newsletter_subscriber_save_after>
+		</events>
+
+	</frontend>
+
+	<!-- Admin Configuration Default Values -->
+	<default>
+		<advalo>
+			<advalo_tagging_enabled>1</advalo_tagging_enabled>
+		</advalo>
+		<advalo_events> 
+			<newsletter_subscribed>newsletter_subscribed</newsletter_subscribed>
+		</advalo_events>
+	</default>
+</config>

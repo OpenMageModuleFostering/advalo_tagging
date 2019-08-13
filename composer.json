@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/Advalo_Tagging",
+    "type": "magento-module",
+    "license": "LGPL",
+    "homepage": "",
+    "description": "Advalo Pulse for Magento is a plugin to allow easy syncing of data in and out of Advalo Pulse, a SaaS DMP.",
+    "authors": [
+    {
+        "name": "Advalo",
+        "email": "webmaster@advalo.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}

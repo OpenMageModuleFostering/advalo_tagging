@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package>
+    <name>Advalo_Tagging</name>
+    <version>1.1.0</version>
+    <stability>stable</stability>
+    <license uri="http://opensource.org/licenses/lgpl-license.php">LGPL</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Advalo Pulse for Magento is a plugin to allow easy syncing of data in and out of Advalo Pulse, a SaaS DMP.</summary>
+    <description>Advalo Pulse is a SaaS Data Management Platform which allows companies to harness the power of their customer/visitor data in real-time.&#xD;
+</description>
+    <notes>Magento version requirements&#xD;
+&#xD;
+Magento 1.7+&#xD;
+PHP 5.3+&#xD;
+&#xD;
+Fixed&#xD;
+&#xD;
+Fixed: Load sequence for load/ready events.&#xD;
+</notes>
+    <authors><author><name>Advalo</name><user>advalo</user><email>webmaster@advalo.com</email></author></authors>
+    <date>2015-01-06</date>
+    <time>16:06:26</time>
+    <contents><target name="magecommunity"><dir name="Advalo"><dir name="Tagging"><dir name="Block"><file name="At.php" hash="2f9b28d67ec004b994a6e2bdfbb96fac"/></dir><dir name="Helper"><file name="Data.php" hash="f9e920f75bee7717851911e36481c583"/></dir><dir name="Model"><dir name="Page"><file name="Observer.php" hash="c4f6ac28a5e54f3f63eeea687ba6268b"/><file name="to" hash="9f12d3d7fc55977747a25f6815f92b0a"/></dir><file name=".DS_Store" hash="a52ca6afadcc6a627c69e60fe88dbc81"/></dir><dir name="etc"><file name="adminhtml.xml" hash="4d9aefd59323006f41a00db2f6f126e9"/><file name="config.xml" hash="c9ac624acd5b326f1db760b323f872c2"/><file name="system.xml" hash="55e53293abbc729e5e772b05c512044c"/></dir><file name=".DS_Store" hash="9a07bbeda4fce5709889c78fc0e21dd4"/></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="template"><dir name="advalo"><file name="advalo_tagging.phtml" hash="31c89a7c495fd62623165c40b0c92ae8"/></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Advalo_all.xml" hash="d1dccbed9a24cd832a09d1ee33efff01"/></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
+</package>
